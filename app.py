@@ -7,6 +7,11 @@ import joblib
 from pathlib import Path
 from PIL import Image
 import streamlit as st
+st.markdown("""
+<style>
+dir=rtl;
+</style>
+    """, unsafe_allow_html=True)
 import imagify
 from bokeh.plotting import figure, output_file, show
 import math
@@ -104,8 +109,8 @@ def main():
         return df_input
 
     #flag=1
-    qvals = {"Select an Option": 0, "Strongly Agree": 5, "Agree": 4, "Neutral": 3, "Disagree": 2,
-             "Strongly Disagree": 1}
+    qvals = {"قم بالإختيار": 0, "أوافق بشدة": 5, "أوافق": 4, "محايد": 3, "لا أوافق": 2,
+             "لا أوافق بشدة": 1}
     st.title("CounselBot")
     banner=Image.open("img/21.png")
     st.image(banner, use_column_width=True)
@@ -128,10 +133,10 @@ def main():
         #st.text_area("confirm", value="starting test", height=100, max_chars=None)
         st.title("PERSONALITY TEST:")
         #st.write("Would you like to begin with the test?")
-        kr = st.selectbox("Would you like to begin with the test?", ["Select an Option", "Yes", "No"])
+        kr = st.selectbox("Would you like to begin with the test?", ["قم بالإختيار", "Yes", "No"])
         if (kr == "Yes"):
             kr1 = st.selectbox("Select level of education",
-                               ["Select an Option", "Grade 10", "Grade 12", "Undergraduate"])
+                               ["قم بالإختيار", "Grade 10", "Grade 12", "Undergraduate"])
 
             #####################################  GRADE 10  ###########################################
 
@@ -142,95 +147,90 @@ def main():
                     st.write("I find writing programs for computer applications interesting")
                     n = imagify.imageify(n)
                     inp = st.selectbox("",
-                                       ["Select an Option", "Strongly Agree", "Agree", "Neutral", "Disagree",
-                                        "Strongly Disagree"],
+                                       ["قم بالإختيار", "أوافق بشدة", "أوافق", "محايد", "لا أوافق",
+                                        "لا أوافق بشدة"],
                                        key='1')
-                    if ((inp != "Select an Option")):
+                    if ((inp != "قم بالإختيار")):
                         lis.append(qvals[inp])
                         st.header("Question 2")
                         st.write("I can understand mathematical problems with ease")
                         n = imagify.imageify(n)
-                        inp2 = st.selectbox("", ["Select an Option", "Strongly Agree", "Agree", "Neutral", "Disagree",
-                                                 "Strongly Disagree"], key='2')
+                        inp2 = st.selectbox("", ["قم بالإختيار", "أوافق بشدة", "أوافق", "محايد", "لا أوافق",
+                                                 "لا أوافق بشدة"], key='2')
 
-                        if (inp2 != "Select an Option"):
+                        if (inp2 != "قم بالإختيار"):
                             lis.append(qvals[inp2])
                             st.header("Question 3")
                             st.write("Learning about the existence of individual chemical components is interesting")
                             n = imagify.imageify(n)
-                            inp3 = st.selectbox("", ["Select an Option", "Strongly Agree", "Agree", "Neutral", "Disagree",
-                                                     "Strongly Disagree"], key='3')
-                            if (inp3 != "Select an Option"):
+                            inp3 = st.selectbox("", ["قم بالإختيار", "أوافق بشدة", "أوافق", "محايد", "لا أوافق",
+                                                     "لا أوافق بشدة"], key='3')
+                            if (inp3 != "قم بالإختيار"):
                                 lis.append(qvals[inp3])
                                 st.header("Question 4")
                                 st.write("The way plants and animals thrive gets me curious")
                                 n = imagify.imageify(n)
                                 inp4 = st.selectbox("",
-                                                    ["Select an Option", "Strongly Agree", "Agree", "Neutral", "Disagree",
-                                                     "Strongly Disagree"], key='4')
-                                if (inp4 != "Select an Option"):
+                                                    ["قم بالإختيار", "أوافق بشدة", "أوافق", "محايد", "لا أوافق",
+                                                     "لا أوافق بشدة"], key='4')
+                                if (inp4 != "قم بالإختيار"):
                                     lis.append(qvals[inp4])
                                     st.header("Question 5")
                                     st.write("Studying about the way fundamental constituents of the universe interact with each other is fascinating")
                                     n = imagify.imageify(n)
                                     inp5 = st.selectbox("",
-                                                        ["Select an Option", "Strongly Agree", "Agree", "Neutral",
-                                                         "Disagree",
-                                                         "Strongly Disagree"], key='5')
-                                    if (inp5 != "Select an Option"):
+                                                        ["قم بالإختيار", "أوافق بشدة", "أوافق", "محايد",
+                                                         "لا أوافق",
+                                                         "لا أوافق بشدة"], key='5')
+                                    if (inp5 != "قم بالإختيار"):
                                         lis.append(qvals[inp5])
                                         st.header("Question 6")
-                                        st.write(
-                                            "Accounting and business management is my cup of tea")
+                                        st.write("Accounting and business management is my cup of tea")
                                         n = imagify.imageify(n)
                                         inp6 = st.selectbox("",
-                                                            ["Select an Option", "Strongly Agree", "Agree", "Neutral",
-                                                             "Disagree",
-                                                             "Strongly Disagree"], key='6')
-                                        if (inp6 != "Select an Option"):
+                                                            ["قم بالإختيار", "أوافق بشدة", "أوافق", "محايد",
+                                                             "لا أوافق",
+                                                             "لا أوافق بشدة"], key='6')
+                                        if (inp6 != "قم بالإختيار"):
                                             lis.append(qvals[inp6])
                                             st.header("Question 7")
-                                            st.write(
-                                                "I would like to know more about human behaviour, relations and patterns of thinking")
+                                            st.write("I would like to know more about human behaviour, relations and patterns of thinking")
                                             n = imagify.imageify(n)
                                             inp7 = st.selectbox("",
-                                                                ["Select an Option", "Strongly Agree", "Agree", "Neutral",
-                                                                 "Disagree",
-                                                                 "Strongly Disagree"], key='7')
-                                            if (inp7 != "Select an Option"):
+                                                                ["قم بالإختيار", "أوافق بشدة", "أوافق", "محايد",
+                                                                 "لا أوافق",
+                                                                 "لا أوافق بشدة"], key='7')
+                                            if (inp7 != "قم بالإختيار"):
                                                 lis.append(qvals[inp7])
                                                 st.header("Question 8")
-                                                st.write(
-                                                    "I find the need to be aware of stories from the past.")
+                                                st.write("I find the need to be aware of stories from the past.")
                                                 n = imagify.imageify(n)
                                                 inp8 = st.selectbox("",
-                                                                    ["Select an Option", "Strongly Agree", "Agree",
-                                                                     "Neutral",
-                                                                     "Disagree",
-                                                                     "Strongly Disagree"], key='8')
-                                                if (inp8 != "Select an Option"):
+                                                                    ["قم بالإختيار", "أوافق بشدة", "أوافق",
+                                                                     "محايد",
+                                                                     "لا أوافق",
+                                                                     "لا أوافق بشدة"], key='8')
+                                                if (inp8 != "قم بالإختيار"):
                                                     lis.append(qvals[inp8])
                                                     st.header("Question 9")
-                                                    st.write(
-                                                        "I see myself as a sportsperson/professional trainer")
+                                                    st.write("I see myself as a sportsperson/professional trainer")
                                                     n = imagify.imageify(n)
                                                     inp9 = st.selectbox("",
-                                                                        ["Select an Option", "Strongly Agree", "Agree",
-                                                                         "Neutral",
-                                                                         "Disagree",
-                                                                         "Strongly Disagree"], key='9')
-                                                    if (inp9 != "Select an Option"):
+                                                                        ["قم بالإختيار", "أوافق بشدة", "أوافق",
+                                                                         "محايد",
+                                                                         "لا أوافق",
+                                                                         "لا أوافق بشدة"], key='9')
+                                                    if (inp9 != "قم بالإختيار"):
                                                         lis.append(qvals[inp9])
                                                         st.header("Question 10")
-                                                        st.write(
-                                                            "I enjoy creating works of art")
+                                                        st.write("I enjoy creating works of art")
                                                         n = imagify.imageify(n)
                                                         inp10 = st.selectbox("",
-                                                                             ["Select an Option", "Strongly Agree", "Agree",
-                                                                              "Neutral",
-                                                                              "Disagree",
-                                                                              "Strongly Disagree"], key='10')
-                                                        if (inp10 != "Select an Option"):
+                                                                             ["قم بالإختيار", "أوافق بشدة", "أوافق",
+                                                                              "محايد",
+                                                                              "لا أوافق",
+                                                                              "لا أوافق بشدة"], key='10')
+                                                        if (inp10 != "قم بالإختيار"):
                                                             lis.append(qvals[inp10])
                                                             st.success("Test Completed")
                                                             #st.write(lis)
@@ -400,158 +400,147 @@ def main():
                 st.write("I enjoy debating and negotiating issues in public")
                 n = imagify.imageify(n)
                 inp = st.selectbox("",
-                                   ["Select an Option", "Strongly Agree", "Agree", "Neutral", "Disagree",
-                                    "Strongly Disagree"],
+                                   ["قم بالإختيار", "أوافق بشدة", "أوافق", "محايد", "لا أوافق",
+                                    "لا أوافق بشدة"],
                                    key='1')
-                if ((inp != "Select an Option")):
+                if ((inp != "قم بالإختيار")):
                     lis.append(qvals[inp])
                     st.header("Question 2")
                     st.write("Studying the anatomy of the human body and giving first aid to people is something I'm always looking forward to")
                     n = imagify.imageify(n)
-                    inp2 = st.selectbox("", ["Select an Option", "Strongly Agree", "Agree", "Neutral", "Disagree",
-                                             "Strongly Disagree"], key='2')
+                    inp2 = st.selectbox("", ["قم بالإختيار", "أوافق بشدة", "أوافق", "محايد", "لا أوافق",
+                                             "لا أوافق بشدة"], key='2')
 
-                    if (inp2 != "Select an Option"):
+                    if (inp2 != "قم بالإختيار"):
                         lis.append(qvals[inp2])
                         st.header("Question 3")
                         st.write("I can lead a team and easily manage projects")
                         n = imagify.imageify(n)
-                        inp3 = st.selectbox("", ["Select an Option", "Strongly Agree", "Agree", "Neutral", "Disagree",
-                                                 "Strongly Disagree"], key='3')
-                        if (inp3 != "Select an Option"):
+                        inp3 = st.selectbox("", ["قم بالإختيار", "أوافق بشدة", "أوافق", "محايد", "لا أوافق",
+                                                 "لا أوافق بشدة"], key='3')
+                        if (inp3 != "قم بالإختيار"):
                             lis.append(qvals[inp3])
                             st.header("Question 4")
                             st.write("Working with tools, equipment, and machinery is enjoyable")
                             n = imagify.imageify(n)
                             inp4 = st.selectbox("",
-                                                ["Select an Option", "Strongly Agree", "Agree", "Neutral", "Disagree",
-                                                 "Strongly Disagree"], key='4')
-                            if (inp4 != "Select an Option"):
+                                                ["قم بالإختيار", "أوافق بشدة", "أوافق", "محايد", "لا أوافق",
+                                                 "لا أوافق بشدة"], key='4')
+                            if (inp4 != "قم بالإختيار"):
                                 lis.append(qvals[inp4])
                                 st.header("Question 5")
-                                st.write(
-                                    "Budgeting, costing and estimating for a business isn't exhausting")
+                                st.write("Budgeting, costing and estimating for a business isn't exhausting")
                                 n = imagify.imageify(n)
                                 inp5 = st.selectbox("",
-                                                    ["Select an Option", "Strongly Agree", "Agree", "Neutral",
-                                                     "Disagree",
-                                                     "Strongly Disagree"], key='5')
-                                if (inp5 != "Select an Option"):
+                                                    ["قم بالإختيار", "أوافق بشدة", "أوافق", "محايد",
+                                                     "لا أوافق",
+                                                     "لا أوافق بشدة"], key='5')
+                                if (inp5 != "قم بالإختيار"):
                                     lis.append(qvals[inp5])
                                     st.header("Question 6")
-                                    st.write(
-                                        "I can see myself taking part in competitive sporting events to become a professional")
+                                    st.write("I can see myself taking part in competitive sporting events to become a professional")
                                     n = imagify.imageify(n)
                                     inp6 = st.selectbox("",
-                                                        ["Select an Option", "Strongly Agree", "Agree", "Neutral",
-                                                         "Disagree",
-                                                         "Strongly Disagree"], key='6')
-                                    if (inp6 != "Select an Option"):
+                                                        ["قم بالإختيار", "أوافق بشدة", "أوافق", "محايد",
+                                                         "لا أوافق",
+                                                         "لا أوافق بشدة"], key='6')
+                                    if (inp6 != "قم بالإختيار"):
                                         lis.append(qvals[inp6])
                                         st.header("Question 7")
-                                        st.write(
-                                            "I don't burn out while doing translations, reading and correcting language")
+                                        st.write("I don't burn out while doing translations, reading and correcting language")
                                         n = imagify.imageify(n)
                                         inp7 = st.selectbox("",
-                                                            ["Select an Option", "Strongly Agree", "Agree", "Neutral",
-                                                             "Disagree",
-                                                             "Strongly Disagree"], key='7')
-                                        if (inp7 != "Select an Option"):
+                                                            ["قم بالإختيار", "أوافق بشدة", "أوافق", "محايد",
+                                                             "لا أوافق",
+                                                             "لا أوافق بشدة"], key='7')
+                                        if (inp7 != "قم بالإختيار"):
                                             lis.append(qvals[inp7])
                                             st.header("Question 8")
-                                            st.write(
-                                                "I would love to act in or direct a play or film")
+                                            st.write("I would love to act in or direct a play or film")
                                             n = imagify.imageify(n)
                                             inp8 = st.selectbox("",
-                                                                ["Select an Option", "Strongly Agree", "Agree",
-                                                                 "Neutral",
-                                                                 "Disagree",
-                                                                 "Strongly Disagree"], key='8')
-                                            if (inp8 != "Select an Option"):
+                                                                ["قم بالإختيار", "أوافق بشدة", "أوافق",
+                                                                 "محايد",
+                                                                 "لا أوافق",
+                                                                 "لا أوافق بشدة"], key='8')
+                                            if (inp8 != "قم بالإختيار"):
                                                 lis.append(qvals[inp8])
                                                 st.header("Question 9")
-                                                st.write(
-                                                    "Making sketches of people or landscapes is a hobby I see as a career")
+                                                st.write("Making sketches of people or landscapes is a hobby I see as a career")
                                                 n = imagify.imageify(n)
                                                 inp9 = st.selectbox("",
-                                                                    ["Select an Option", "Strongly Agree", "Agree",
-                                                                     "Neutral",
-                                                                     "Disagree",
-                                                                     "Strongly Disagree"], key='9')
-                                                if (inp9 != "Select an Option"):
+                                                                    ["قم بالإختيار", "أوافق بشدة", "أوافق",
+                                                                     "محايد",
+                                                                     "لا أوافق",
+                                                                     "لا أوافق بشدة"], key='9')
+                                                if (inp9 != "قم بالإختيار"):
                                                     lis.append(qvals[inp9])
                                                     st.header("Question 10")
-                                                    st.write(
-                                                        "I can easily work with numbers and calculations most of the time")
+                                                    st.write("I can easily work with numbers and calculations most of the time")
                                                     n = imagify.imageify(n)
                                                     inp10 = st.selectbox("",
-                                                                         ["Select an Option", "Strongly Agree", "Agree",
-                                                                          "Neutral",
-                                                                          "Disagree",
-                                                                          "Strongly Disagree"], key='10')
-                                                    if (inp10 != "Select an Option"):
+                                                                         ["قم بالإختيار", "أوافق بشدة", "أوافق",
+                                                                          "محايد",
+                                                                          "لا أوافق",
+                                                                          "لا أوافق بشدة"], key='10')
+                                                    if (inp10 != "قم بالإختيار"):
                                                         lis.append(qvals[inp10])
                                                         st.header("Question 11")
-                                                        st.write(
-                                                            "I enjoy doing clerical work i.e. filing, counting stock and issuing receipts")
+                                                        st.write("I enjoy doing clerical work i.e. filing, counting stock and issuing receipts")
                                                         n = imagify.imageify(n)
                                                         inp11 = st.selectbox("",
-                                                                             ["Select an Option", "Strongly Agree",
-                                                                              "Agree",
-                                                                              "Neutral",
-                                                                              "Disagree",
-                                                                              "Strongly Disagree"], key='11')
-                                                        if (inp11 != "Select an Option"):
+                                                                             ["قم بالإختيار", "أوافق بشدة",
+                                                                              "أوافق",
+                                                                              "محايد",
+                                                                              "لا أوافق",
+                                                                              "لا أوافق بشدة"], key='11')
+                                                        if (inp11 != "قم بالإختيار"):
                                                             lis.append(qvals[inp11])
                                                             st.header("Question 12")
-                                                            st.write(
-                                                                "I love studying the culture and life style of human societies")
+                                                            st.write("I love studying the culture and life style of human societies")
                                                             n = imagify.imageify(n)
                                                             inp12 = st.selectbox("",
-                                                                                 ["Select an Option", "Strongly Agree",
-                                                                                  "Agree",
-                                                                                  "Neutral",
-                                                                                  "Disagree",
-                                                                                  "Strongly Disagree"], key='12')
-                                                            if (inp12 != "Select an Option"):
+                                                                                 ["قم بالإختيار", "أوافق بشدة",
+                                                                                  "أوافق",
+                                                                                  "محايد",
+                                                                                  "لا أوافق",
+                                                                                  "لا أوافق بشدة"], key='12')
+                                                            if (inp12 != "قم بالإختيار"):
                                                                 lis.append(qvals[inp12])
                                                                 st.header("Question 13")
-                                                                st.write(
-                                                                    "Teaching children and young people is something I see myself doing on a daily basis")
+                                                                st.write("Teaching children and young people is something I see myself doing on a daily basis")
                                                                 n = imagify.imageify(n)
                                                                 inp13 = st.selectbox("",
-                                                                                     ["Select an Option",
-                                                                                      "Strongly Agree", "Agree",
-                                                                                      "Neutral",
-                                                                                      "Disagree",
-                                                                                      "Strongly Disagree"], key='13')
-                                                                if (inp13 != "Select an Option"):
+                                                                                     ["قم بالإختيار",
+                                                                                      "أوافق بشدة", "أوافق",
+                                                                                      "محايد",
+                                                                                      "لا أوافق",
+                                                                                      "لا أوافق بشدة"], key='13')
+                                                                if (inp13 != "قم بالإختيار"):
                                                                     lis.append(qvals[inp13])
                                                                     st.header("Question 14")
-                                                                    st.write(
-                                                                        "I won't have a problem persevering in the army or police force")
+                                                                    st.write("I won't have a problem persevering in the army or police force")
                                                                     n = imagify.imageify(n)
                                                                     inp14 = st.selectbox("",
-                                                                                         ["Select an Option",
-                                                                                          "Strongly Agree", "Agree",
-                                                                                          "Neutral",
-                                                                                          "Disagree",
-                                                                                          "Strongly Disagree"],
+                                                                                         ["قم بالإختيار",
+                                                                                          "أوافق بشدة", "أوافق",
+                                                                                          "محايد",
+                                                                                          "لا أوافق",
+                                                                                          "لا أوافق بشدة"],
                                                                                          key='14')
-                                                                    if (inp14 != "Select an Option"):
+                                                                    if (inp14 != "قم بالإختيار"):
                                                                         lis.append(qvals[inp14])
                                                                         st.header("Question 15")
-                                                                        st.write(
-                                                                            "Introducing consumers to new products and convincing them to buy the same is something that comes with ease")
+                                                                        st.write("Introducing consumers to new products and convincing them to buy the same is something that comes with ease")
                                                                         n = imagify.imageify(n)
                                                                         inp15 = st.selectbox("",
-                                                                                             ["Select an Option",
-                                                                                              "Strongly Agree", "Agree",
-                                                                                              "Neutral",
-                                                                                              "Disagree",
-                                                                                              "Strongly Disagree"],
+                                                                                             ["قم بالإختيار",
+                                                                                              "أوافق بشدة", "أوافق",
+                                                                                              "محايد",
+                                                                                              "لا أوافق",
+                                                                                              "لا أوافق بشدة"],
                                                                                              key='15')
-                                                                        if (inp15 != "Select an Option"):
+                                                                        if (inp15 != "قم بالإختيار"):
                                                                             lis.append(qvals[inp10])
                                                                             st.success("Test Completed")
                                                                             #st.write(lis)
@@ -743,96 +732,90 @@ def main():
                     st.write("I can be the person who handles all aspects of information security and protects the virtual data resources of a company")
                     n = imagify.imageify(n)
                     inp = st.selectbox("",
-                                       ["Select an Option", "Strongly Agree", "Agree", "Neutral", "Disagree",
-                                        "Strongly Disagree"],
+                                       ["قم بالإختيار", "أوافق بشدة", "أوافق", "محايد", "لا أوافق",
+                                        "لا أوافق بشدة"],
                                        key='1')
-                    if ((inp != "Select an Option")):
+                    if ((inp != "قم بالإختيار")):
                         lis.append(qvals[inp])
                         st.header("Question 2")
                         st.write("I enjoy studying business and information requirements of an organisation and using this data to develop processes that help achieve strategic goals.")
                         n = imagify.imageify(n)
-                        inp2 = st.selectbox("", ["Select an Option", "Strongly Agree", "Agree", "Neutral", "Disagree",
-                                                 "Strongly Disagree"], key='2')
+                        inp2 = st.selectbox("", ["قم بالإختيار", "أوافق بشدة", "أوافق", "محايد", "لا أوافق",
+                                                 "لا أوافق بشدة"], key='2')
 
-                        if (inp2 != "Select an Option"):
+                        if (inp2 != "قم بالإختيار"):
                             lis.append(qvals[inp2])
                             st.header("Question 3")
                             st.write("I can assess a problem and design a brand new system or improve an existing system to make it better and more efficient. ")
                             n = imagify.imageify(n)
-                            inp3 = st.selectbox("", ["Select an Option", "Strongly Agree", "Agree", "Neutral", "Disagree",
-                                                     "Strongly Disagree"], key='3')
-                            if (inp3 != "Select an Option"):
+                            inp3 = st.selectbox("", ["قم بالإختيار", "أوافق بشدة", "أوافق", "محايد", "لا أوافق",
+                                                     "لا أوافق بشدة"], key='3')
+                            if (inp3 != "قم بالإختيار"):
                                 lis.append(qvals[inp3])
                                 st.header("Question 4")
                                 st.write("Designing, developing, modifying, editing and working with databases and large datasets is my cup of tea")
                                 n = imagify.imageify(n)
                                 inp4 = st.selectbox("",
-                                                    ["Select an Option", "Strongly Agree", "Agree", "Neutral", "Disagree",
-                                                     "Strongly Disagree"], key='4')
-                                if (inp4 != "Select an Option"):
+                                                    ["قم بالإختيار", "أوافق بشدة", "أوافق", "محايد", "لا أوافق",
+                                                     "لا أوافق بشدة"], key='4')
+                                if (inp4 != "قم بالإختيار"):
                                     lis.append(qvals[inp4])
                                     st.header("Question 5")
-                                    st.write(
-                                        "I can mine data using BI software tools, compare, visualize and communicate the results with ease")
+                                    st.write("I can mine data using BI software tools, compare, visualize and communicate the results with ease")
                                     n = imagify.imageify(n)
                                     inp5 = st.selectbox("",
-                                                        ["Select an Option", "Strongly Agree", "Agree", "Neutral",
-                                                         "Disagree",
-                                                         "Strongly Disagree"], key='5')
-                                    if (inp5 != "Select an Option"):
+                                                        ["قم بالإختيار", "أوافق بشدة", "أوافق", "محايد",
+                                                         "لا أوافق",
+                                                         "لا أوافق بشدة"], key='5')
+                                    if (inp5 != "قم بالإختيار"):
                                         lis.append(qvals[inp5])
                                         st.header("Question 6")
-                                        st.write(
-                                            "Implementing and providing support for Microsoft's Dynamics CRM is a skill I possess")
+                                        st.write("Implementing and providing support for Microsoft's Dynamics CRM is a skill I possess")
                                         n = imagify.imageify(n)
                                         inp6 = st.selectbox("",
-                                                            ["Select an Option", "Strongly Agree", "Agree", "Neutral",
-                                                             "Disagree",
-                                                             "Strongly Disagree"], key='6')
-                                        if (inp6 != "Select an Option"):
+                                                            ["قم بالإختيار", "أوافق بشدة", "أوافق", "محايد",
+                                                             "لا أوافق",
+                                                             "لا أوافق بشدة"], key='6')
+                                        if (inp6 != "قم بالإختيار"):
                                             lis.append(qvals[inp6])
                                             st.header("Question 7")
-                                            st.write(
-                                                "I can be innovative and creative when it comes to making user-friendly mobile applications")
+                                            st.write("I can be innovative and creative when it comes to making user-friendly mobile applications")
                                             n = imagify.imageify(n)
                                             inp7 = st.selectbox("",
-                                                                ["Select an Option", "Strongly Agree", "Agree", "Neutral",
-                                                                 "Disagree",
-                                                                 "Strongly Disagree"], key='7')
-                                            if (inp7 != "Select an Option"):
+                                                                ["قم بالإختيار", "أوافق بشدة", "أوافق", "محايد",
+                                                                 "لا أوافق",
+                                                                 "لا أوافق بشدة"], key='7')
+                                            if (inp7 != "قم بالإختيار"):
                                                 lis.append(qvals[inp7])
                                                 st.header("Question 8")
-                                                st.write(
-                                                    "I can perform well in a varied discipline, combining aspects of psychology, business, market research, design, and technology.")
+                                                st.write("I can perform well in a varied discipline, combining aspects of psychology, business, market research, design, and technology.")
                                                 n = imagify.imageify(n)
                                                 inp8 = st.selectbox("",
-                                                                    ["Select an Option", "Strongly Agree", "Agree",
-                                                                     "Neutral",
-                                                                     "Disagree",
-                                                                     "Strongly Disagree"], key='8')
-                                                if (inp8 != "Select an Option"):
+                                                                    ["قم بالإختيار", "أوافق بشدة", "أوافق",
+                                                                     "محايد",
+                                                                     "لا أوافق",
+                                                                     "لا أوافق بشدة"], key='8')
+                                                if (inp8 != "قم بالإختيار"):
                                                     lis.append(qvals[inp8])
                                                     st.header("Question 9")
-                                                    st.write(
-                                                        "I am responsible enough to maintain the quality systems, such as laboratory control and document control and training, to ensure control of the manufacturing process.")
+                                                    st.write("I am responsible enough to maintain the quality systems, such as laboratory control and document control and training, to ensure control of the manufacturing process.")
                                                     n = imagify.imageify(n)
                                                     inp9 = st.selectbox("",
-                                                                        ["Select an Option", "Strongly Agree", "Agree",
-                                                                         "Neutral",
-                                                                         "Disagree",
-                                                                         "Strongly Disagree"], key='9')
-                                                    if (inp9 != "Select an Option"):
+                                                                        ["قم بالإختيار", "أوافق بشدة", "أوافق",
+                                                                         "محايد",
+                                                                         "لا أوافق",
+                                                                         "لا أوافق بشدة"], key='9')
+                                                    if (inp9 != "قم بالإختيار"):
                                                         lis.append(qvals[inp9])
                                                         st.header("Question 10")
-                                                        st.write(
-                                                            "Be it front-end or back-end, I would love designing and developing websites more than anything else")
+                                                        st.write("Be it front-end or back-end, I would love designing and developing websites more than anything else")
                                                         n = imagify.imageify(n)
                                                         inp10 = st.selectbox("",
-                                                                             ["Select an Option", "Strongly Agree", "Agree",
-                                                                              "Neutral",
-                                                                              "Disagree",
-                                                                              "Strongly Disagree"], key='10')
-                                                        if (inp10 != "Select an Option"):
+                                                                             ["قم بالإختيار", "أوافق بشدة", "أوافق",
+                                                                              "محايد",
+                                                                              "لا أوافق",
+                                                                              "لا أوافق بشدة"], key='10')
+                                                        if (inp10 != "قم بالإختيار"):
                                                             lis.append(qvals[inp10])
                                                             st.success("Test Completed")
                                                             #st.write(lis)
